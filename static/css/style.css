@@ -1,0 +1,64 @@
+body{
+  font-family: Ubuntu;
+}
+
+/*  NAVBAR  */
+.navbar, .inverse-navbar {
+   background: #DB9292 !important;
+   border-color: #fff;
+}
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a {
+   color: #fff;
+}
+.navbar-inverse .navbar-brand:hover {
+   color: #D97979;
+}
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .open > a {
+  background-image: linear-gradient(to bottom, #92C1DB 0px, #92C1DB 100%);
+  background-repeat: repeat-x;
+  box-shadow: none;
+}
+.open > .dropdown-menu {
+  background-color: #92C1DB;
+  font-color: #f1f1f1;
+}
+.dropdown-menu{
+  min-width: 145px;
+}
+.shopping-cart table {
+   max-width: 400px;
+}
+
+/*  FOOTER  */
+.footer {
+  background-color: #DB9292;
+  color: #f1f1f1;
+}
+#poweredBy a{
+  color: rgba(9, 9, 9, 0.74)
+}
+
+/*  BUTTONS & THUMBNAIL */
+.btn-primary {
+  background: #92C1DB;
+  border: 0;
+}
+.btn-primary:hover {
+  background: #4ba4d5;
+}
+
+.thumbnail {
+   height: 100px;
+}
+
+/*  ETC  */
+.shopping-cart {
+   display: none;   
+   padding: 10px;
+   border-top: 5px solid #DB9292;
+   border-bottom: 5px solid #DB9292;
+}
+.to-cart {
+   width:50px;
+   cursor: pointer;
+}

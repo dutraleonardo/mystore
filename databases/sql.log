@@ -1,0 +1,157 @@
+timestamp: 2016-08-17T14:09:35.942709
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512)
+);
+success!
+timestamp: 2016-08-17T14:09:36.014778
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2016-08-17T14:09:36.090770
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2016-08-17T14:09:36.166657
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE  ,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2016-08-17T14:09:36.243753
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2016-08-17T14:09:36.352946
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    created_on TIMESTAMP,
+    service CHAR(512),
+    ticket CHAR(512),
+    renew CHAR(1)
+);
+success!
+timestamp: 2016-08-17T14:09:36.464347
+CREATE TABLE product(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    code CHAR(512),
+    name CHAR(512),
+    description CHAR(512),
+    qty_in_stock CHAR(512),
+    unit_price DOUBLE,
+    image CHAR(512),
+    tags CHAR(512),
+    popularity INTEGER,
+    featured CHAR(1),
+    on_sale CHAR(1),
+    tax DOUBLE,
+    keywords CHAR(512),
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2016-08-17T14:09:36.565291
+CREATE TABLE purchase_order(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    buyer_name CHAR(512),
+    shipping_address CHAR(512),
+    shipping_city CHAR(512),
+    shipping_zip CHAR(512),
+    shipping_state CHAR(512),
+    shipping_country CHAR(512),
+    total_price DOUBLE,
+    total_tax DOUBLE,
+    total_balance DOUBLE,
+    amount_paid DOUBLE,
+    payment_id CHAR(512),
+    paid_on TIMESTAMP,
+    status CHAR(512),
+    notes TEXT,
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2016-08-17T14:09:36.656099
+CREATE TABLE purchase_item(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    purchase_order INTEGER REFERENCES purchase_order (id) ON DELETE CASCADE  ,
+    product INTEGER REFERENCES product (id) ON DELETE CASCADE  ,
+    code CHAR(512),
+    name CHAR(512),
+    description CHAR(512),
+    qty_in_stock CHAR(512),
+    unit_price DOUBLE,
+    image CHAR(512),
+    tags CHAR(512),
+    popularity INTEGER,
+    featured CHAR(1),
+    on_sale CHAR(1),
+    tax DOUBLE,
+    keywords CHAR(512),
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    quantity_in_cart INTEGER
+);
+success!
+DELETE FROM product;
+DELETE FROM sqlite_sequence WHERE name='product';
+success!
+DELETE FROM product;
+DELETE FROM sqlite_sequence WHERE name='product';
+success!
+DELETE FROM product;
+DELETE FROM sqlite_sequence WHERE name='product';
+success!
+DELETE FROM product;
+DELETE FROM sqlite_sequence WHERE name='product';
+success!
+DELETE FROM product;
+DELETE FROM sqlite_sequence WHERE name='product';
+success!
+timestamp: 2017-01-26T14:29:38.438852
+CREATE TABLE mytable(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    color TEXT,
+    f_string CHAR(512),
+    f_text TEXT,
+    f_date DATE,
+    f_time TIME,
+    f_datetime TIMESTAMP,
+    f_integer INTEGER,
+    f_double DOUBLE,
+    f_list_string TEXT,
+    f_list_integer TEXT,
+    f_upload CHAR(512)
+);
+success!
