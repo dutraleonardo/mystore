@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # estore3
 
 A more or less functional online store based on web2py + ractive.js + Stripe.js.
@@ -11,3 +12,6 @@ Most files are web2py scaffolding files. Most important files are:
 ## Try it here
 
 http://experts4solutions.com/estore3
+=======
+# mystore
+>>>>>>> a9429627d631f4fc1bf8bea75f491b5466ea4b68
