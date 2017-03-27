@@ -1,7 +1,7 @@
 # mystore
 A Simple webstore created with Web2py
 
-##HOW TO RUN:
+## HOW TO RUN:
 
 - git clone git://github.com/mdipierro/web2py.git web2py
 - cd web2py/applications
